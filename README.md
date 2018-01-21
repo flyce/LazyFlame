@@ -8,8 +8,8 @@ Can quickly generate Ruili Aviation Maintenance Engineering Department weekly me
 
 可用于瑞丽航空维修工程部 周例会会议纪要部分内容快速生成。
 
-### how to use? 如何使用
-#### installation 安装
+### How to use? 如何使用
+#### Installation 安装
 ```
 git clone https://github.com/flyce/LazyFlame.git
 cd LazyFlame
@@ -17,7 +17,7 @@ npm i
 node ./bin/www
 ```
 
-#### usage 使用
+#### Usage 使用
 
 Rename your file to `doc.xlsx` and put the file in the `public` directory.
 
