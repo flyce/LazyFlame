@@ -4,7 +4,7 @@ A `express.js` application that uses `xlsx` to read Excel files.
 
 一个使用`xlsx`读取Excel文件的`express.js`应用。
 
-Can quickly generate Ruili Aviation Maintenance Engineering Department weekly meeting content.
+Can quickly generate Ruili Airlines Maintenance Engineering Department weekly meeting content.
 
 可用于瑞丽航空维修工程部 周例会会议纪要部分内容快速生成。
 
