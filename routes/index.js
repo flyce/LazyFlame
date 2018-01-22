@@ -41,12 +41,12 @@ router.get('/', function (req, res, next) {
             }
         }
         res.json({
-            "飞机维修中心": outputData['飞机维修中心'],
-            "航材保障中心": outputData["航材保障中心"],
             "工程技术中心": outputData["工程技术中心"],
+            "航材保障中心": outputData["航材保障中心"],
             "计划与控制中心": outputData["计划与控制中心"],
             "安全质量中心": outputData["安全质量中心"],
-            "培训管理中心": outputData["培训管理中心"]
+            "培训管理中心": outputData["培训管理中心"],
+            "飞机维修中心": outputData['飞机维修中心']
         });
     })
 });
