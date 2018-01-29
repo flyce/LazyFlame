@@ -28,7 +28,7 @@ router.get('/', function (req, res, next) {
 
                 let currentCenterItemsNumber = sheetData["B" + index].v - currentCenterStartNumber + 1;
                 let cellThree = sheetData["C" + index].v;
-                let cellFour = sheetData["D" + index].v;
+                let cellFour = sheetData["D" + index] == null ? null : sheetData["D" + index].v;
 
                 let str = currentCenterItemsNumber + "." +
                     combineCellThreeAndCellFour(cellThree, cellFour,
@@ -60,7 +60,9 @@ router.get('/', function (req, res, next) {
  */
 function combineCellThreeAndCellFour(cellThree, cellFour, endFlag) {
     cellThree = cellThree.replace(/[\u3002]/, '');
-    cellFour = cellFour.toString().replace(/[\u3002]$/, '');
+    if (cellFour != null) {
+        cellFour = cellFour.toString().replace(/[\u3002]$/, '');
+    }
     let endMark = endFlag ? ';' : '。';
     if (handleSemanteme(cellFour)) {
         return cellThree + endMark;
@@ -82,6 +84,10 @@ function handleSemanteme(cellFour) {
         if (cellFour == meaning[index]) {
             return true;
         }
+    }
+
+    if (cellFour == '' || cellFour == null) {
+        return true;
     }
 
     // 判断第四列的内容四否为 201*年**月**日
