@@ -100,6 +100,11 @@ function handleSemanteme(cellFour) {
         return true;
     }
 
+    // 判断第四列的值是否为DAY-DAY
+    if (cellFour.match(/[\d]{1,}-[\d]{1,}/)) {
+        return true;
+    }
+
     return false;
 }
 
