@@ -28,9 +28,13 @@ Open the browser to access: `localhost:3000`.
 打开浏览器，访问: `localhost:3000`。
 
 For Windows
+
 Move `Lazyflame.bat` to the project sibling directory
+
 Run `Lazyflame.bat`
 
 windows下
+
 移动项目根目录`LazyFlame.bat`到项目同级目录
+
 运行`LazyFlame.bat`
