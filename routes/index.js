@@ -27,7 +27,12 @@ router.get('/', function (req, res, next) {
                 }
 
                 let currentCenterItemsNumber = sheetData["B" + index].v - currentCenterStartNumber + 1;
-                let cellThree = sheetData["C" + index].v;
+                let cellThree;
+                if (sheetData["C" + index].v == null || sheetData["C" + index].v == '' ) {
+                    break;
+                } else {
+                    cellThree = sheetData["C" + index].v;
+                }
                 let cellFour = sheetData["D" + index] == null ? null : sheetData["D" + index].v;
 
                 let str = currentCenterItemsNumber + "." +
@@ -36,8 +41,6 @@ router.get('/', function (req, res, next) {
                         element.v == sheetData["A" + ((index + 1) < tableLength ? index + 1 : tableLength)].v
                     );
                 outputData[currentCenter] = outputData[currentCenter] == null ? str + "\n" : outputData[currentCenter] +  str + "\n";
-
-
             }
         }
         res.json({
@@ -78,7 +81,7 @@ function combineCellThreeAndCellFour(cellThree, cellFour, endFlag) {
  * @returns {boolean}
  */
 function handleSemanteme(cellFour) {
-    const meaning = ["跟进执行", "持续进行", "已完成", "跟进", "完成", "准备中", "进行中"];
+    const meaning = ["跟进执行", "持续进行", "已完成", "跟进", "完成", "准备中", "进行中", "持续跟进"];
     // 判断第四列的内容是否和meaning数组中某一个值一致
     for (let index = 0; index < meaning.length; index ++) {
         if (cellFour == meaning[index]) {
