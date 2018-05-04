@@ -1,8 +1,7 @@
 @echo off
-set /p input=Òª´¦ÀíµÄÖÜÊı:
+set /p input=è¦å¤„ç†çš„å‘¨æ•°:
 set /a week=%input%-1
-echo ´Ó Àı»á×¼±¸²ÄÁÏ\%input%\ ¸´ÖÆ Î¬ĞŞ¹¤³Ì²¿µÚ%week%ÖÜ¹¤×÷ÖÜ±¨.xlsx µ½ LazyFlame\public
-copy Àı»á×¼±¸²ÄÁÏ\%input%\Î¬ĞŞ¹¤³Ì²¿µÚ%week%ÖÜ¹¤×÷ÖÜ±¨.xlsx LazyFlame\public\doc.xlsx
+echo ä» ä¾‹ä¼šå‡†å¤‡ææ–™\%input%\ å¤åˆ¶ ç»´ä¿®å·¥ç¨‹éƒ¨ç¬¬%week%å‘¨å·¥ä½œå‘¨æŠ¥.xlsx åˆ° LazyFlame\public
+copy ä¾‹ä¼šå‡†å¤‡ææ–™\%input%\ç»´ä¿®å·¥ç¨‹éƒ¨ç¬¬%week%å‘¨å·¥ä½œå‘¨æŠ¥.xlsx LazyFlame\public\doc.xlsx
 cd LazyFlame
-echo ´ò¿ªä¯ÀÀÆ÷£¬·ÃÎÊlocalhost:3000
 nodemon ./bin/www
