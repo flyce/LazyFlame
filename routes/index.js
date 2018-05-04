@@ -3,12 +3,15 @@ var router = express.Router();
 
 if (typeof require !== 'undefined') XLSX = require('xlsx');
 
+console.log("打开浏览器，访问'localhost:3000'");
+
 router.get('/', function (req, res, next) {
     readXlsx().then((xlsxData) => {
         const sheetData = xlsxData.Sheets.sheet1;
         let tableLength = sheetData['!ref'].match(/\d{2,}/)[0];
         let currentCenter = null, currentCenterStartNumber = null;
         let outputData = new Array();
+
         for (let index = 1; index < tableLength; index++) {
             const element = sheetData["A" + index];
             if (element.v.match(/[\u4e2d][\u5fc3]/) != null) { // 匹配到 "中心" 才进行处理，否则不是我需要的单元格
@@ -28,7 +31,7 @@ router.get('/', function (req, res, next) {
 
                 let currentCenterItemsNumber = sheetData["B" + index].v - currentCenterStartNumber + 1;
                 let cellThree;
-                if (sheetData["C" + index].v == null || sheetData["C" + index].v == '' ) {
+                if (sheetData["C" + index].v == null || sheetData["C" + index].v == '') {
                     break;
                 } else {
                     cellThree = sheetData["C" + index].v;
@@ -37,10 +40,10 @@ router.get('/', function (req, res, next) {
 
                 let str = currentCenterItemsNumber + "." +
                     combineCellThreeAndCellFour(cellThree, cellFour,
-                        // 判断当前行和下一行的中心是否一直，从而决定结束的符号
+                        // 判断当前行和下一行的中心是否一致，从而决定结束的符号
                         element.v == sheetData["A" + ((index + 1) < tableLength ? index + 1 : tableLength)].v
                     );
-                outputData[currentCenter] = outputData[currentCenter] == null ? str + "\n" : outputData[currentCenter] +  str + "\n";
+                outputData[currentCenter] = outputData[currentCenter] == null ? str + "\n" : outputData[currentCenter] + str + "\n";
             }
         }
         res.json({
